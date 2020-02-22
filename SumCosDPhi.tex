@@ -1,0 +1,28 @@
+\input{common.tex}
+\begin{document}
+	\begin{tikzpicture}[x=1.2cm, y=1.2cm]
+
+		\newcommand{\rightoffset}{8}
+
+		% left diagram
+		\draw[thick,dotted,blue,->] (0, 0) -- (2, 1.7) node[anchor=west]{$\nu_\mu$};
+		\draw[thick,blue,->] (0, 0) -- (2, 2) node[anchor=west]{$\mu$};
+		\draw[thick,dotted,blue,->] (0, 0) -- (2, 1.2) node[anchor=west]{$\nu_\tau$};
+		\draw[thick,red,->] (0, 0) -- (-2, 0) node[anchor=east]{\tauhad};
+		\draw[thick,red,->] (0, 0) -- (-2, -0.1);
+		\draw[thick,red,->] (0, 0) -- (-2, -0.2);
+		\draw[thick,dotted,red,->] (0, 0) -- (-2, -0.4) node[anchor=north]{$\nu_\tau$};
+		\draw[thick,dotted,gray,->] (0, 0) -- (-2, 1.5) node[anchor=east]{\MET};
+
+
+		% right diagram
+
+		\draw[thick,blue,->] (0+\rightoffset, 0) -- (2+\rightoffset, 2) node[anchor=east]{$\mu$};
+		\draw[thick,blue,dotted,->] (0+\rightoffset, 0) -- (2+\rightoffset, -2) node[anchor=west]{$\nu_\mu$};
+		\draw[thick,red,->] (0+\rightoffset, 0) -- (-2+\rightoffset, 0);
+		\draw[thick,red,->] (0+\rightoffset, 0) -- (-2+\rightoffset, 0.2) node[anchor=east]{jet $\to\mathrm{fake\ } \tauhad$};
+		\draw[thick,red,->] (0+\rightoffset, 0) -- (-2+\rightoffset, 0.4);
+		\draw[thick,red,->] (0+\rightoffset, 0) -- (-2+\rightoffset, -0.2);
+		\draw[thick,red,->] (0+\rightoffset, 0) -- (-2+\rightoffset, -0.4);
+	\end{tikzpicture}
+\end{document}

@@ -1,0 +1,33 @@
+# compiled LaTeX stuff
+*.aux
+*.toc
+*.lot
+*.lof
+*.log
+*.out
+*.bbl
+*.blg
+
+# converted files
+*converted-to.pdf
+
+# added by latexmk
+thesis.fdb_latexmk
+thesis.fls
+
+# added by CI
+thesis.pdf
+
+*.DS_store
+
+# minitoc
+*.maf
+*.mtc*
+
+# tikz externalize
+*.dpth
+*.md5
+*.auxlock
+
+# visualisation
+visualisation/wordcount/data.txt
