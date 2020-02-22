@@ -12,11 +12,8 @@
 *converted-to.pdf
 
 # added by latexmk
-thesis.fdb_latexmk
-thesis.fls
-
-# added by CI
-thesis.pdf
+*.fdb_latexmk
+*.fls
 
 *.DS_store
 
@@ -29,5 +26,4 @@ thesis.pdf
 *.md5
 *.auxlock
 
-# visualisation
-visualisation/wordcount/data.txt
+*.pdf
