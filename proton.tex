@@ -1,6 +1,6 @@
 \input{common.tex}
 \begin{document}
-	\begin{tikzpicture}[x=1.2cm, y=1.2cm]
+	\begin{tikzpicture}[]
 		
 		% origin for main proton circle
 		\newcommand{\xreference}{0}
@@ -9,16 +9,11 @@
 		\newcommand{\quarkradius}{5cm * 0.15}
 		\newcommand{\seaquarkradius}{\quarkradius * 0.4}
 		\newcommand{\offset}{2}
+		\newcommand{\ylowerquark}{0.73205080757 * \offset}
 
 		% proton
 		\filldraw[blur shadow={shadow blur steps=5}, color=gray!20, draw=black] (\xreference, \yreference + 1) circle (\protonradius);
 
-		% valence quarks
-		\shadedraw[inner color=blue!50, outer color=blue, draw=black] (\xreference + \offset, \yreference + \offset) circle (\quarkradius);
-		\shadedraw[inner color=red!50, outer color=red, draw=black] (\xreference - \offset, \yreference + \offset) circle (\quarkradius);
-		% from Pythagorous: down offset is sqrt(3) * x offset - y offset = (sqrt(3) - 1) * offset
-		\newcommand{\ylowerquark}{0.73205080757 * \offset}
-		\shadedraw[inner color=red!50, outer color=red, draw=black] (\xreference, -1 * \ylowerquark) circle (\quarkradius);
 
 		%% labels
 		%\newcommand{\labeloffset}{0.25}
@@ -31,8 +26,8 @@
 		\draw[gluon] (\xreference + \offset, \yreference + \offset) -- (\xreference, -1 * \ylowerquark);
 		\draw[gluon] (\xreference - \offset, \yreference + \offset) -- (\xreference, -1 * \ylowerquark);
 
-		% sea quarks
-		% gluons
+
+		% gluons for sea quarks
 		\newcommand{\gluonoffset}{1.5}
 		\draw[gluon] (\xreference + \offset, \yreference + \offset) -- (\xreference + \offset - \gluonoffset, \yreference + \offset + \gluonoffset);
 		\draw[gluon] (\xreference - \offset, \yreference + \offset) -- (\xreference - \offset + \gluonoffset, \yreference + \offset + \gluonoffset);
@@ -43,9 +38,22 @@
 		\draw[particleNoArrow] (\xreference - \offset + \gluonoffset, \yreference + \offset + \gluonoffset) -- (\xreference - \offset + \gluonoffset + 0.5, \yreference + \offset + \gluonoffset + 0.5);
 		\draw[particleNoArrow] (\xreference - \offset + \gluonoffset, \yreference + \offset + \gluonoffset) -- (\xreference - \offset + \gluonoffset + 0.5, \yreference + \offset + \gluonoffset - 0.5);
 
-		% quarks
+
+		% draw quarks last to "hide" gluons that overlap in centre
+		% valence quarks
+		\shadedraw[inner color=blue!50, outer color=blue, draw=black] (\xreference + \offset, \yreference + \offset) circle (\quarkradius);
+		\shadedraw[inner color=red!50, outer color=red, draw=black] (\xreference - \offset, \yreference + \offset) circle (\quarkradius);
+		% from Pythagorous: down offset is sqrt(3) * x offset - y offset = (sqrt(3) - 1) * offset
+		\shadedraw[inner color=red!50, outer color=red, draw=black] (\xreference, -1 * \ylowerquark) circle (\quarkradius);
+
+		% sea quarks
 		\shadedraw[inner color=orange!50, outer color=orange, draw=black] (\xreference, \yreference + 2 * \offset) circle (\seaquarkradius);
 		\shadedraw[inner color=orange!50, outer color=orange, draw=black] (\xreference, \yreference + 1.5 * \offset) circle (\seaquarkradius);
+
+		% labels
+		\node at (\xreference + \offset, \yreference + \offset) {\Large{\color{white}d}};
+		\node at (\xreference - \offset, \yreference + \offset) {\Large{\color{white}u}};
+		\node at (\xreference, -1 * \ylowerquark) {\Large{\color{white}u}};
 
 	\end{tikzpicture}
 \end{document}
