@@ -20,9 +20,10 @@
 		\path [name intersections = {of = ellipse and horizontal}];
 
 		% tau cone
-		\draw[fill = green!80, green!80] (intersection-1) -- (0,0) -- (intersection-2) -- cycle;
+		\shadedraw[bottom color = white, top color = green!80] (intersection-1) -- (0,0) -- (intersection-2) -- cycle;
+		\draw[color = black, thick] (intersection-1) -- (0,0) -- (intersection-2) -- cycle;
 		% base of tau cone in ball
-		\draw[fill = green!60, densely dashed] (0,\z) ellipse ({\rx} and {\ry});
+		\shadedraw[bottom color = green!60, top color = green!80, black, thick] (0,\z) ellipse ({\rx} and {\ry});
 
 	\end{scope}
 
@@ -32,9 +33,11 @@
 
 	\path [name intersections = {of = ellipse2 and horizontal2}];
 
-	%isolation cone
-	\draw[fill = blue!90, blue!90, opacity = 0.4] (intersection-1) -- (0,0) -- (intersection-2) -- cycle;
-	\draw[fill = blue!30, densely dashed] (0,\zz) ellipse ( {\rxx} and {\ryy} );
+	isolation cone
+	\shadedraw[bottom color=white, top color=blue!90, opacity = 0.4] (intersection-1) -- (0,0) -- (intersection-2) -- cycle;
+	\draw[color = black, thick] (intersection-1) -- (0,0) -- (intersection-2) -- cycle;
+	\shadedraw[bottom color=white, top color=blue!30] (0,\zz) ellipse ( {\rxx} and {\ryy} );
+	\draw[color = black, thick] (0,\zz) ellipse ( {\rxx} and {\ryy} );
 
 
 
@@ -70,14 +73,16 @@
 	\path [name intersections = {of = ellipse2 and horizontal2}];
 
 	%isolation cone
-	\draw[fill = blue!90, blue!90, opacity = 0.4] (intersection-1) -- (0,0) -- (intersection-2) -- cycle;
-	\draw[fill = blue!30, densely dashed] (0,\zz) ellipse ( {\rxx} and {\ryy} );
+	\shadedraw[bottom color=white, top color = blue!90, blue!90, opacity = 0.4] (intersection-1) -- (0,0) -- (intersection-2) -- cycle;
+	\draw[color = black, thick] (intersection-1) -- (0,0) -- (intersection-2) -- cycle;
+	\shadedraw[bottom color=white, top color = blue!30] (0,\zz) ellipse ( {\rxx} and {\ryy} );
+	\draw[color = black, thick] (0,\zz) ellipse ( {\rxx} and {\ryy} );
 
 
 
-	\draw[-] (0,0) ..  controls (0.1, 0.5) and (0.15, 1.5) .. (0.3, 2.0);% charged pions
-	\draw[-] (0,0) ..  controls (-0.1, 0.5) and (-0.15, 1.5) .. (-0.3, 2.0);
-	\draw[-] (0,0) ..  controls (-0.05, 0.5) and (-0.1, 1.5) .. (-0.17, 2.0);
+	\draw[-, thick] (0,0) ..  controls (0.1, 0.5) and (0.15, 1.5) .. (0.3, 2.0);% charged pions
+	\draw[-, thick] (0,0) ..  controls (-0.1, 0.5) and (-0.15, 1.5) .. (-0.3, 2.0);
+	\draw[-, thick] (0,0) ..  controls (-0.05, 0.5) and (-0.1, 1.5) .. (-0.17, 2.0);
 
 	\draw[dashed] (0,0)  to (0.1, 2.0);%pi^0s
 	\draw[dashed] (0,0)  to (-0.1, 2.0);
@@ -85,8 +90,8 @@
 	\draw[-] (0,0) .. controls (0.13, 0.5) and (0.2, 1.5) .. (0.5, 2.0);
 	\draw[-] (0,0) .. controls (-0.13, 0.5) and (-0.2, 1.5) .. (-0.5, 2.0);
 
-	\draw[-] (0,0) .. controls (0.2, 0.5) and (0.4, 1.7) .. (0.7, 2.0);
-	\draw[-] (0,0) .. controls (-0.2, 0.5) and (-0.4, 1.7) .. (-0.7, 2.0);
+	%\draw[-] (0,0) .. controls (0.2, 0.5) and (0.4, 1.7) .. (0.7, 2.0);
+	%\draw[-] (0,0) .. controls (-0.2, 0.5) and (-0.4, 1.7) .. (-0.7, 2.0);
 
 	\draw[dashed] (0,0) to (0.35, 2.0);
 	\draw[dashed] (0,0) to (-0.25, 2.0);
