@@ -2,6 +2,5 @@
 
 Tikz diagrams I made for my thesis
 
-![tau_had](figures/tauJetCartoon.png)
-![jet](figures/tauJetCartoon2.png)
+![tau_had jet](figures/tauJetCartoon.png)
 ![proton](figures/proton.png)

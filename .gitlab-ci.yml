@@ -13,5 +13,7 @@ compile_pdf:
         make
     artifacts:
         paths:
-            - *.pdf
+            - make_proton.pdf
+            - make_particles.pdf
+            - make_tauJetCartoon.pdf
         expire_in: 1 week
