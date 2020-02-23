@@ -10,14 +10,12 @@ compile_pdf:
     image: tianon/latex
 
     script:
-        pdflatex -shell-escape SumCosDPhi.tex
         pdflatex -shell-escape particles.tex
         pdflatex -shell-escape tauJetCartoon.tex
         pdflatex -shell-escape proton.tex
     artifacts:
         paths:
             - thesis.pdf
-            - SumCosDPhi.pdf
             - particles.pdf
             - tauJetCartoon.pdf
             - proton.pdf
