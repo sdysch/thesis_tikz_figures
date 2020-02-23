@@ -13,8 +13,5 @@ compile_pdf:
         make
     artifacts:
         paths:
-            - thesis.pdf
-            - particles.pdf
-            - tauJetCartoon.pdf
-            - proton.pdf
+            - *.pdf
         expire_in: 1 week
