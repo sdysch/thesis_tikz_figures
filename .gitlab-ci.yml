@@ -10,9 +10,7 @@ compile_pdf:
     image: tianon/latex
 
     script:
-        pdflatex -shell-escape particles.tex
-        pdflatex -shell-escape tauJetCartoon.tex
-        pdflatex -shell-escape proton.tex
+        make
     artifacts:
         paths:
             - thesis.pdf
