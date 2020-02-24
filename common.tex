@@ -14,10 +14,12 @@
 \usetikzlibrary{shapes.misc}
 \usetikzlibrary{shadows.blur}
 
-\usetikzlibrary{external}
-\tikzexternalize[prefix=build/]
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=build/]
 
 % common things used for feynman diagrams
+% NOTE, these are defined here, but when the figuresare used from within my thesis directory, the definitions there will be used!!
+
 \tikzset{
 	particle/.style={thick,draw=black, postaction={decorate},
 	decoration={markings,mark=at position .5 with {\arrow[black]{triangle 45}}}}

@@ -1,0 +1,110 @@
+% definitions
+\newcommand{\ttbarVertexSize}{0.3}
+\newcommand{\ttbarLength}{2}
+
+\newcommand{\WBosonX}{2}
+\newcommand{\WBosonY}{2}
+
+\newcommand{\bquarkX}{\WBosonX}
+\newcommand{\bquarkY}{-\WBosonY}
+
+\newcommand{\neutrinoX}{0.5 * \bquarkX}
+\newcommand{\neutrinoY}{0.5 * \bquarkY}
+
+\newcommand{\leptonX}{\neutrinoX}
+\newcommand{\leptonY}{-\neutrinoY}
+
+\newcommand{\offset}{0.2};
+
+% true tau
+\begin{tabular}{@{}c@{}}
+	\begin{tikzpicture}
+
+
+		% top quark decays
+		\draw[black, thick] (0, 0) -- (\ttbarLength, 0);
+		\draw[black, thick] (0, 0) -- (-\ttbarLength, 0);
+
+		% ttbar production vertex, after top quark lines to hide them
+		\filldraw[blur shadow={shadow blur steps=5}, color=blue!20, draw=black] (0, 0) circle (\ttbarVertexSize);
+
+		% W bosons
+		 \draw[Wboson] (\ttbarLength, 0) -- (\ttbarLength + \WBosonX, \WBosonY);
+		 \draw[Wboson] (-\ttbarLength, 0) -- (-\ttbarLength - \WBosonX, \WBosonY);
+
+		 % b quarks
+		 \draw[black, thick] (\ttbarLength, 0) -- (\ttbarLength + \bquarkX, \bquarkY);
+		 \draw[black, thick] (-\ttbarLength, 0) -- (-\ttbarLength - \bquarkX, \bquarkY);
+
+		 % neutrinos
+		 \draw[gray, thick, dotted] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + \neutrinoX, \WBosonY + \neutrinoY);
+		 \draw[gray, thick, dotted] (-\ttbarLength - \WBosonX, \WBosonY) -- (-\ttbarLength - \WBosonX - \neutrinoX, \WBosonY + \neutrinoY);
+
+		 % lepton
+		 \draw[gray, thick] (-\ttbarLength - \WBosonX, \WBosonY) -- (-\ttbarLength - \WBosonX - \leptonX, \WBosonY + \leptonY);
+
+		 % tau
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 1.1 * \leptonX, \WBosonY + 0.9 * \leptonY);
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + \leptonX, \WBosonY + \leptonY);
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 0.9 * \leptonX, \WBosonY + 1.1 * \leptonY);
+
+		 % labels
+		 \node at (\ttbarLength + \WBosonX + \leptonX + \offset, \WBosonY + \leptonY + \offset) {$\tauhad$};
+		 \node at (-\ttbarLength - \WBosonX - \leptonX - \offset, \WBosonY + \leptonY + \offset) {$e, \mu$};
+		 \node at (\ttbarLength + \WBosonX + \neutrinoX + \offset, \WBosonY + \neutrinoY + \offset) {$\nu_\tau$};
+		 \node at (-\ttbarLength - \WBosonX - \neutrinoX - \offset, \WBosonY + \neutrinoY + \offset) {$\nu_{e,\mu}$};
+		 \node at (\ttbarLength + \bquarkX + \offset, \bquarkY + \offset) {$b$};
+		 \node at (-\ttbarLength - \bquarkX - \offset, \bquarkY + \offset) {$b$};
+
+		 \node at (\ttbarLength / 2, \offset) {$t$};
+		 \node at (-\ttbarLength / 2, \offset) {$t$};
+
+		 \node at (\ttbarLength + \WBosonX / 2, \WBosonY / 2 + 2 * \offset) {$W$};
+		 \node at (-\ttbarLength - \WBosonX / 2, \WBosonY / 2 + 2 * \offset) {$W$};
+
+	\end{tikzpicture}
+
+	\\
+	\\
+	\\
+
+	% jet fakes
+	\begin{tikzpicture}
+
+		% top quark decays
+		\draw[black, thick] (0, 0) -- (\ttbarLength, 0);
+		\draw[black, thick] (0, 0) -- (-\ttbarLength, 0);
+
+		% ttbar production vertex, after top quark lines to hide them
+		\filldraw[blur shadow={shadow blur steps=5}, color=blue!20, draw=black] (0, 0) circle (\ttbarVertexSize);
+
+		% W bosons
+		 \draw[Wboson] (\ttbarLength, 0) -- (\ttbarLength + \WBosonX, \WBosonY);
+		 \draw[Wboson] (-\ttbarLength, 0) -- (-\ttbarLength - \WBosonX, \WBosonY);
+
+		 % b quarks
+		 \draw[black, thick] (\ttbarLength, 0) -- (\ttbarLength + \bquarkX, \bquarkY);
+		 \draw[black, thick] (-\ttbarLength, 0) -- (-\ttbarLength - \bquarkX, \bquarkY);
+
+		 % neutrino
+		 \draw[gray, thick, dotted] (-\ttbarLength - \WBosonX, \WBosonY) -- (-\ttbarLength - \WBosonX - \neutrinoX, \WBosonY + \neutrinoY);
+
+		 % jet fakes
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 1.1 * \leptonX, \WBosonY + 0.9 * \leptonY);
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + \leptonX, \WBosonY + \leptonY);
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 0.9 * \leptonX, \WBosonY + 1.1 * \leptonY);
+
+		 % labels
+		 \node at (\ttbarLength + \WBosonX + \leptonX + \offset, \WBosonY + \leptonY + \offset) {jet $\to\tauhad$ fake};
+		 \node at (\ttbarLength + \WBosonX + \neutrinoX + \offset, \WBosonY + \neutrinoY + \offset) {$\nu_\tau$};
+		 \node at (-\ttbarLength - \WBosonX - \neutrinoX - \offset, \WBosonY + \neutrinoY + \offset) {$\nu_{e,\mu}$};
+		 \node at (\ttbarLength + \bquarkX + \offset, \bquarkY + \offset) {$b$};
+		 \node at (-\ttbarLength - \bquarkX - \offset, \bquarkY + \offset) {$b$};
+
+		 \node at (\ttbarLength / 2, \offset) {$t$};
+		 \node at (-\ttbarLength / 2, \offset) {$t$};
+
+		 \node at (\ttbarLength + \WBosonX / 2, \WBosonY / 2 + 2 * \offset) {$W$};
+		 \node at (-\ttbarLength - \WBosonX / 2, \WBosonY / 2 + 2 * \offset) {$W$};
+	\end{tikzpicture}
+\end{tabular}
