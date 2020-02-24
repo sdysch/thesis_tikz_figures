@@ -14,7 +14,7 @@
 \newcommand{\leptonX}{\neutrinoX}
 \newcommand{\leptonY}{-\neutrinoY}
 
-\newcommand{\offset}{0.2};
+\newcommand{\offset}{0.2}
 
 % true tau
 \begin{tabular}{@{}c@{}}
@@ -44,9 +44,9 @@
 		 \draw[gray, thick] (-\ttbarLength - \WBosonX, \WBosonY) -- (-\ttbarLength - \WBosonX - \leptonX, \WBosonY + \leptonY);
 
 		 % tau
-		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 1.1 * \leptonX, \WBosonY + 0.9 * \leptonY);
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 1.05 * \leptonX, \WBosonY + 0.95 * \leptonY);
 		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + \leptonX, \WBosonY + \leptonY);
-		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 0.9 * \leptonX, \WBosonY + 1.1 * \leptonY);
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 0.95 * \leptonX, \WBosonY + 1.05 * \leptonY);
 
 		 % labels
 		 \node at (\ttbarLength + \WBosonX + \leptonX + \offset, \WBosonY + \leptonY + \offset) {$\tauhad$};
@@ -89,14 +89,28 @@
 		 % neutrino
 		 \draw[gray, thick, dotted] (-\ttbarLength - \WBosonX, \WBosonY) -- (-\ttbarLength - \WBosonX - \neutrinoX, \WBosonY + \neutrinoY);
 
+		 % lepton
+		 \draw[gray, thick] (-\ttbarLength - \WBosonX, \WBosonY) -- (-\ttbarLength - \WBosonX - \leptonX, \WBosonY + \leptonY);
+
 		 % jet fakes
+		 % 1
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 1.2 * \leptonX, \WBosonY + 0.8 * \leptonY);
 		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 1.1 * \leptonX, \WBosonY + 0.9 * \leptonY);
 		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + \leptonX, \WBosonY + \leptonY);
 		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 0.9 * \leptonX, \WBosonY + 1.1 * \leptonY);
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 0.8 * \leptonX, \WBosonY + 1.2 * \leptonY);
+
+		 % 2
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 1.2 * \leptonX, \WBosonY - 0.8 * \leptonY);
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 1.1 * \leptonX, \WBosonY - 0.9 * \leptonY);
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + \leptonX, \WBosonY - \leptonY);
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 0.9 * \leptonX, \WBosonY - 1.1 * \leptonY);
+		 \draw[gray, thick] (\ttbarLength + \WBosonX, \WBosonY) -- (\ttbarLength + \WBosonX + 0.8 * \leptonX, \WBosonY - 1.2 * \leptonY);
 
 		 % labels
-		 \node at (\ttbarLength + \WBosonX + \leptonX + \offset, \WBosonY + \leptonY + \offset) {jet $\to\tauhad$ fake};
-		 \node at (\ttbarLength + \WBosonX + \neutrinoX + \offset, \WBosonY + \neutrinoY + \offset) {$\nu_\tau$};
+		 \node at (\ttbarLength + \WBosonX + \leptonX + \offset, \WBosonY + \leptonY + 2 * \offset) {jet $\to\tauhad$ fake};
+		 \node at (\ttbarLength + \WBosonX + \neutrinoX + 2 * \offset, \WBosonY + \neutrinoY - 2 * \offset) {jet};
+		 \node at (-\ttbarLength - \WBosonX - \leptonX - \offset, \WBosonY + \leptonY + \offset) {$e, \mu$};
 		 \node at (-\ttbarLength - \WBosonX - \neutrinoX - \offset, \WBosonY + \neutrinoY + \offset) {$\nu_{e,\mu}$};
 		 \node at (\ttbarLength + \bquarkX + \offset, \bquarkY + \offset) {$b$};
 		 \node at (-\ttbarLength - \bquarkX - \offset, \bquarkY + \offset) {$b$};
