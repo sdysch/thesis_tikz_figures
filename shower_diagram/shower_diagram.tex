@@ -1,13 +1,58 @@
 \begin{tikzpicture}
 
-	% blue circle for hard scatter
-	\def\hardScatterRadius{0.4}
-	\draw[color = black, thick, fill = blue] (0, 0) circle (\hardScatterRadius);
+	% coordinates
+
+	\def\hardScatterRadius{0.3}
+	\def\protonPosition{2}
+	\def\UEPositionY{-1}
+	\def\UEPositionX{0}
+	\def\UEOffsetY{0.1}
+	\def\UEHadXBase{1}
+	\def\UEHadYBase{-2}
 
 	% small ellipse used for parton to hadron transistions
 	\def\smallEllipseRx{0.1}
 	\def\smallEllipseRy{3 * \smallEllipseRx}
 
+	% blue circle for hard scatter
+	\draw[color = black, thick, pattern = north west lines, pattern color = blue] (0, 1) circle (\hardScatterRadius);
+
 	%\draw[color = black, thick, fill = green] (0, 1) circle [x radius = \smallEllipseRx, y radius = \smallEllipseRy];
+
+
+	% valence quarks
+	\draw[color = red, thick] (-3 * \protonPosition, -0.1) -- (-\protonPosition, -0.1);
+	\draw[color = red, thick] (-3 * \protonPosition, 0) -- (-\protonPosition, 0);
+	\draw[color = red, thick] (-3 * \protonPosition, 0.1) -- (-\protonPosition, 0.1);
+
+	\draw[color = red, thick] (3 * \protonPosition, -0.1) -- (\protonPosition, -0.1);
+	\draw[color = red, thick] (3 * \protonPosition, 0) -- (\protonPosition, 0);
+	\draw[color = red, thick] (3 * \protonPosition, 0.1) -- (\protonPosition, 0.1);
+
+
+	% partons from proton
+	\draw[gluon, color = orange] (\protonPosition, -3 * \UEOffsetY) -- (\UEPositionX, \UEPositionY - 1 * \UEOffsetY);
+	\draw[gluon, color = orange] (-\protonPosition, -3 * \UEOffsetY) -- (\UEPositionX, \UEPositionY - 1 * \UEOffsetY);
+	\draw[gluon, color = orange] (\protonPosition, -1 * \UEOffsetY) -- (\UEPositionX, \UEPositionY + \UEOffsetY);
+	\draw[thick, color = orange] (-\protonPosition, -1 * \UEOffsetY) -- (\UEPositionX, \UEPositionY + \UEOffsetY);
+
+	% protons
+	\draw[color = black, thick, fill = red] (-\protonPosition, 0) circle [x radius = \smallEllipseRx, y radius = \smallEllipseRy];
+	\draw[color = black, thick, fill = red] (\protonPosition, 0) circle [x radius = \smallEllipseRx, y radius = \smallEllipseRy];
+
+	% underlying event hadronisation
+	\draw[color = orange, thick] (\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (\UEHadXBase, \UEHadYBase);
+	\draw[color = orange, thick] (-\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (-\UEHadXBase, \UEHadYBase);
+
+	\draw[color = orange, thick] (\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (0.8 * \UEHadXBase, 1.2 * \UEHadYBase);
+	\draw[color = orange, thick] (-\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (-0.8 * \UEHadXBase, 1.2 * \UEHadYBase);
+
+	% gluons in UE
+	\draw[gluon, color = orange] (\UEPositionX + 0.1, \UEPositionY - 0.1) -- (0.8 * \UEHadXBase + 0.1, 1.2 * \UEHadYBase + 0.1);
+
+
+	% UE ellipse
+	\draw[color = black, thick, fill = orange] (\UEPositionX, \UEPositionY) circle [x radius = \smallEllipseRx, y radius = \smallEllipseRy];
+
 
 \end{tikzpicture}
