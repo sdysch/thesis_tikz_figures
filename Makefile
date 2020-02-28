@@ -5,6 +5,7 @@ all:
 	pdflatex ${ARGS} make_particles.tex
 	pdflatex ${ARGS} make_tauJetCartoon.tex
 	pdflatex ${ARGS} make_ttbar_tauJetFakes.tex
+	pdflatex ${ARGS} make_shower_diagram.tex
 
 particles:
 	pdflatex ${ARGS} make_particles.tex
@@ -14,6 +15,9 @@ tauJetCartoon:
 
 ttbar_tauJetFakes:
 	pdflatex ${ARGS} make_ttbar_tauJetFakes.tex
+
+shower_diagram:
+	pdflatex ${ARGS} make_shower_diagram.tex
 
 clean:
 	rm *.pdf *.out *.log *.aux *.bbl *.blg *.toc *.mtc* *.maf *.dpth *.md5
