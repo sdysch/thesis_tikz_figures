@@ -35,6 +35,26 @@
 		}
 	}
 
+	% hadronisation diagram 2
+	\tikzset{
+		hadronisation2/.code args = {#1, #2, #3}{%
+			% thick lines
+			%\foreach \i in {-0.1, 0.1} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.5 + \i , #2 - 0.5 + \i);
+			% big particle decay
+			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.3 , #2 - 0.7);
+			\draw[dashed, color = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.3 , #2 - 0.7) -- (#1 + 0.75, #2 - 0.95);
+			\draw[dashed, color = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.3 , #2 - 0.7) -- (#1 + 0.55, #2 - 1.15);
+			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green] (#1 + 0.3 , #2 - 0.7) circle (0.075);
+			\draw[color = black, fill = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.75, #2 - 0.95) circle (0.05);
+			\draw[color = black, fill = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.55, #2 - 1.15) circle (0.05);
+			% little particle
+			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.7 , #2 - 0.3);
+			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green] (#1 + 0.7 , #2 - 0.3) circle (0.05);
+			% ellipse for hadronization vertex
+			\draw[color = black, fill = blue] (#1, #2) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy, rotate = #3];
+		}
+	}
+
 	% hadronisation diagram with smaller decay
 	\tikzset{
 		hadronisationSmallDecay/.code args = {#1, #2, #3}{%
@@ -98,10 +118,10 @@
 	% underlying event hadronisation + hadronisation
 	%FIXME, rotation angle done by eye, not actually calculated from geometry
 	\draw[color = orange, thick] (\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (\UEHadXBase, \UEHadYBase);
-	\draw[hadronisation = {\UEHadXBase, \UEHadYBase, 150}];
+	\draw[hadronisation2 = {\UEHadXBase, \UEHadYBase, 150}];
 
 	\draw[smallGluon, color = orange, thick] (-\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (-\UEHadXBase, \UEHadYBase);
-	\draw[hadronisation = {-\UEHadXBase, \UEHadYBase, 30}];
+	\draw[hadronisation2 = {-\UEHadXBase, \UEHadYBase, 30}];
 
 	\draw[smallGluon, color = orange, thick] (\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (0.8 * \UEHadXBase, 1.2 * \UEHadYBase);
 	\draw[hadronisation = {0.8 * \UEHadXBase, 1.2 * \UEHadYBase, 140}];
@@ -111,13 +131,13 @@
 
 	\draw[color = orange, thick] (\UEPositionX, \UEPositionY) -- (\UEPositionX, 3 * \UEPositionY);
 	\draw[color = orange, thick] (\UEPositionX, 3 * \UEPositionY) -- (\UEPositionX + 2, 5 * \UEPositionY);
-	\draw[hadronisation = {\UEPositionX + 2, 5 * \UEPositionY, 130}];
+	\draw[hadronisation2 = {\UEPositionX + 2, 5 * \UEPositionY, 130}];
 
 	\draw[smallGluon, color = orange] (\UEPositionX, 3 * \UEPositionY) -- (\UEPositionX, 5 * \UEPositionY);
 	\draw[hadronisation = {\UEPositionX, 5 * \UEPositionY, 90}];
 
 	\draw[smallGluon, color = orange] (\UEPositionX, 3.5 * \UEPositionY) -- (\UEPositionX - 2, 5 * \UEPositionY);
-	\draw[hadronisation = {\UEPositionX - 2, 5 * \UEPositionY, 50}];
+	\draw[hadronisation2 = {\UEPositionX - 2, 5 * \UEPositionY, 50}];
 
 
 	% UE ellipse
