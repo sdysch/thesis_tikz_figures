@@ -13,16 +13,24 @@
 	\def\verySmallEllipseRy{0.5 * \smallEllipseRy}
 	\def\manualRotationOffset{225}
 
-	% hadronisation diagram
+	% hadronisation diagram 1
 	\tikzset{
 		hadronisation/.code args = {#1, #2, #3}{%
-			\foreach \i in {-0.1, 0.1} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.5 + \i , #2 - 0.5 + \i);
+			% thick lines
+			%\foreach \i in {-0.1, 0.1} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.5 + \i , #2 - 0.5 + \i);
+			% big particle decay
 			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.5 , #2 - 0.5);
+			\draw[dashed, color = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.5 , #2 - 0.5) -- (#1 + 0.95, #2 - 0.75);
+			\draw[dashed, color = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.5 , #2 - 0.5) -- (#1 + 0.75, #2 - 0.95);
+			\draw[color = black, fill = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.95, #2 - 0.75) circle (0.05);
+			\draw[color = black, fill = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.75, #2 - 0.95) circle (0.05);
 			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green] (#1 + 0.5 , #2 - 0.5) circle (0.075);
-			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.3 , #2 - 0.7);
+			% little particle
+			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.3, #2 - 0.7);
 			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green] (#1 + 0.3 , #2 - 0.7) circle (0.05);
 			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.7 , #2 - 0.3);
 			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green] (#1 + 0.7 , #2 - 0.3) circle (0.05);
+			% ellipse for hadronization vertex
 			\draw[color = black, fill = blue] (#1, #2) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy, rotate = #3];
 		}
 	}
