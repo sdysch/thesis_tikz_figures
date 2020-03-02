@@ -16,23 +16,30 @@
 	% hadronisation diagram
 	\tikzset{
 		hadronisation/.code args = {#1, #2, #3}{%
-			\foreach \i in {-0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green, thick] (#1, #2) -- (#1 + 0.5 + \i , #2 - 0.5 + \i);
-			\draw[color = blue, thick, fill = blue] (#1, #2) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy, rotate = #3];
+			\foreach \i in {-0.1, 0.1} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.5 + \i , #2 - 0.5 + \i);
+			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.5 , #2 - 0.5);
+			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green] (#1 + 0.5 , #2 - 0.5) circle (0.075);
+			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.3 , #2 - 0.7);
+			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green] (#1 + 0.3 , #2 - 0.7) circle (0.05);
+			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.7 , #2 - 0.3);
+			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green] (#1 + 0.7 , #2 - 0.3) circle (0.05);
+			\draw[color = black, fill = blue] (#1, #2) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy, rotate = #3];
 		}
 	}
 
 	% hadronisation diagram with smaller decay
 	\tikzset{
 		hadronisationSmallDecay/.code args = {#1, #2, #3}{%
-			\foreach \i in {-0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green, thick] (#1, #2) -- (#1 + 0.25 + \i , #2 - 0.25 + \i);
-			\draw[color = blue, thick, fill = blue] (#1, #2) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy, rotate = #3];
+			\foreach \i in {-0.3, -0.1, 0.1, 0.3} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.25 + \i , #2 - 0.25 + \i);
+			\foreach \i in {-0.2, 0, 0.2} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green, dashed] (#1, #2) -- (#1 + 0.25 + \i , #2 - 0.25 + \i);
+			\draw[color = black, fill = blue] (#1, #2) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy, rotate = #3];
 		}
 	}
 
 	% proton scatter diagram
 	\tikzset{
 		protonScatter/.code args = {#1, #2, #3}{%
-			\draw[color = cyan, thick, fill = cyan] (#1, #2) circle [x radius = 0.5 * \verySmallEllipseRx, y radius = #3];
+			\draw[color = black, fill = cyan] (#1, #2) circle [x radius = 0.5 * \verySmallEllipseRx, y radius = #3];
 		}
 	}
 
