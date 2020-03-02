@@ -72,8 +72,8 @@
 
 	% hadronisation
 	%FIXME, rotation angle done by eye, not actually calculated from geometry
-	\draw[color = blue, thick, fill = blue] (0.8 * \UEHadXBase, 1.2 * \UEHadYBase) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy, rotate = 120];
-	\draw[color = blue, thick, fill = blue] (-0.8 * \UEHadXBase, 1.2 * \UEHadYBase) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy, rotate = 50];
+	\draw[hadronisation = {0.8 * \UEHadXBase, 1.2 * \UEHadYBase, \verySmallEllipseRx, \verySmallEllipseRy, 120}];
+	\draw[hadronisation = {-0.8 * \UEHadXBase, 1.2 * \UEHadYBase, \verySmallEllipseRx, \verySmallEllipseRy, 50}];
 
 
 	% UE ellipse
@@ -99,7 +99,7 @@
 
 	% hadronisation
 	\draw[hadronisation = {0.5, \quarkGluonVertexY, \verySmallEllipseRx, \verySmallEllipseRy, 0}];
-	\draw[color = blue, thick, fill = blue] (-0.5, \gluonGluonVertexY) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy];
+	\draw[hadronisation = {-0.5, \gluonGluonVertexY, \verySmallEllipseRx, \verySmallEllipseRy, 0}];
 
 	% blue circle for hard scatter
 	\draw[color = black, thick, pattern = north west lines, pattern color = blue] (\hardScatterX, \hardScatterY) circle (\hardScatterRadius);
