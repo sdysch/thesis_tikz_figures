@@ -1,10 +1,20 @@
 \begin{tikzpicture}
 
+% TODO - hadronisation to particles + decay?
+
 	% diagrams
 	\tikzset{
 		smallGluon/.style={decorate, draw=black,
 		decoration={coil,aspect=0.3,segment length=3pt,amplitude=2pt}}
 	 }
+
+	% hadronisation diagram
+	\tikzset{
+		hadronisation/.code args = {#1, #2, #3, #4, #5}{%
+			\draw[color = blue, thick, fill = blue] (#1, #2) circle [x radius = #3, y radius = #4, rotate = #5];
+		}
+	}
+
 
 	% coordinates
 	\def\hardScatterRadius{0.3}
@@ -60,8 +70,10 @@
 	\draw[smallGluon, color = orange, thick] (\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (0.8 * \UEHadXBase, 1.2 * \UEHadYBase);
 	\draw[color = orange, thick] (-\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (-0.8 * \UEHadXBase, 1.2 * \UEHadYBase);
 
-	% gluons in UE
-	%\draw[smallGluon, color = orange] (\UEPositionX + 0.1, \UEPositionY - 0.1) -- (0.8 * \UEHadXBase + 0.1, 1.2 * \UEHadYBase + 0.1);
+	% hadronisation
+	%FIXME, rotation angle done by eye, not actually calculated from geometry
+	\draw[color = blue, thick, fill = blue] (0.8 * \UEHadXBase, 1.2 * \UEHadYBase) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy, rotate = 120];
+	\draw[color = blue, thick, fill = blue] (-0.8 * \UEHadXBase, 1.2 * \UEHadYBase) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy, rotate = 50];
 
 
 	% UE ellipse
@@ -76,6 +88,7 @@
 	\def\quarkGluonVertexY{0.5}
 	\def\gluonGluonVertexX{-1.6}
 	\def\gluonGluonVertexY{0.5}
+
 	\draw[color = blue, thick] (\protonPosition, 0.2) -- (\quarkGluonVertexX, \quarkGluonVertexY);
 	\draw[color = blue, thick] (\quarkGluonVertexX, \quarkGluonVertexY) -- (0.5, \quarkGluonVertexY);
 	\draw[smallGluon, color = blue] (\quarkGluonVertexX, \quarkGluonVertexY) -- (\hardScatterX + \hardScatterRadius, \hardScatterY);
@@ -84,12 +97,12 @@
 	\draw[smallGluon, color = blue] (\gluonGluonVertexX, \gluonGluonVertexY) -- (-0.5, \gluonGluonVertexY);
 	\draw[smallGluon, color = blue] (\gluonGluonVertexX, \gluonGluonVertexY) -- (\hardScatterX - \hardScatterRadius, \hardScatterY);
 
-	\draw[color = blue, thick, fill = blue] (0.5, \quarkGluonVertexY) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy];
+	% hadronisation
+	\draw[hadronisation = {0.5, \quarkGluonVertexY, \verySmallEllipseRx, \verySmallEllipseRy, 0}];
 	\draw[color = blue, thick, fill = blue] (-0.5, \gluonGluonVertexY) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy];
 
 	% blue circle for hard scatter
 	\draw[color = black, thick, pattern = north west lines, pattern color = blue] (\hardScatterX, \hardScatterY) circle (\hardScatterRadius);
-
 
 
 	% protons
