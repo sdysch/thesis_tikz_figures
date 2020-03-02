@@ -75,6 +75,7 @@
 	% underlying event hadronisation + hadronisation
 	%FIXME, rotation angle done by eye, not actually calculated from geometry
 	\draw[color = orange, thick] (\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (\UEHadXBase, \UEHadYBase);
+	\foreach \i in {-0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3} \draw[color = green, thick] (\UEHadXBase, \UEHadYBase) -- (\UEHadXBase + 0.5 + \i , \UEHadYBase - 0.5 + \i);
 	\draw[hadronisation = {\UEHadXBase, \UEHadYBase, 150}];
 
 	\draw[smallGluon, color = orange, thick] (-\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (-\UEHadXBase, \UEHadYBase);
