@@ -3,15 +3,21 @@
 % TODO - hadronisation to particles + decay?
 
 	% diagrams
+
+	% small gluons
 	\tikzset{
 		smallGluon/.style={decorate, draw=black,
 		decoration={coil,aspect=0.3,segment length=3pt,amplitude=2pt}}
 	 }
 
+	% very small ellipse used for parton to hadron transistions
+	\def\verySmallEllipseRx{0.5 * \smallEllipseRx}
+	\def\verySmallEllipseRy{0.5 * \smallEllipseRy}
+
 	% hadronisation diagram
 	\tikzset{
-		hadronisation/.code args = {#1, #2, #3, #4, #5}{%
-			\draw[color = blue, thick, fill = blue] (#1, #2) circle [x radius = #3, y radius = #4, rotate = #5];
+		hadronisation/.code args = {#1, #2, #3}{%
+			\draw[color = blue, thick, fill = blue] (#1, #2) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy, rotate = #3];
 		}
 	}
 
@@ -22,18 +28,14 @@
 	\def\UEPositionY{-1}
 	\def\UEPositionX{0}
 	\def\UEOffsetY{0.1}
-	\def\UEHadXBase{1}
-	\def\UEHadYBase{-2}
+	\def\UEHadXBase{5}
+	\def\UEHadYBase{-4}
 	\def\hardScatterX{0}
 	\def\hardScatterY{1.5}
 
 	% small ellipse
 	\def\smallEllipseRx{0.1}
 	\def\smallEllipseRy{4 * \smallEllipseRx}
-
-	% very small ellipse used for parton to hadron transistions
-	\def\verySmallEllipseRx{0.5 * \smallEllipseRx}
-	\def\verySmallEllipseRy{0.5 * \smallEllipseRy}
 
 	%\draw[color = black, thick, fill = green] (0, 1) circle [x radius = \smallEllipseRx, y radius = \smallEllipseRy];
 
@@ -63,17 +65,29 @@
 	% Underlying event
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	% underlying event hadronisation
+	% underlying event hadronisation + hadronisation
+	%FIXME, rotation angle done by eye, not actually calculated from geometry
 	\draw[color = orange, thick] (\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (\UEHadXBase, \UEHadYBase);
+	\draw[hadronisation = {\UEHadXBase, \UEHadYBase, 150}];
+
 	\draw[smallGluon, color = orange, thick] (-\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (-\UEHadXBase, \UEHadYBase);
+	\draw[hadronisation = {-\UEHadXBase, \UEHadYBase, 30}];
 
 	\draw[smallGluon, color = orange, thick] (\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (0.8 * \UEHadXBase, 1.2 * \UEHadYBase);
-	\draw[color = orange, thick] (-\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (-0.8 * \UEHadXBase, 1.2 * \UEHadYBase);
+	\draw[hadronisation = {0.8 * \UEHadXBase, 1.2 * \UEHadYBase, 140}];
 
-	% hadronisation
-	%FIXME, rotation angle done by eye, not actually calculated from geometry
-	\draw[hadronisation = {0.8 * \UEHadXBase, 1.2 * \UEHadYBase, \verySmallEllipseRx, \verySmallEllipseRy, 120}];
-	\draw[hadronisation = {-0.8 * \UEHadXBase, 1.2 * \UEHadYBase, \verySmallEllipseRx, \verySmallEllipseRy, 50}];
+	\draw[color = orange, thick] (-\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (-0.8 * \UEHadXBase, 1.2 * \UEHadYBase);
+	\draw[hadronisation = {-0.8 * \UEHadXBase, 1.2 * \UEHadYBase, 40}];
+
+	\draw[color = orange, thick] (\UEPositionX, \UEPositionY) -- (\UEPositionX, 3 * \UEPositionY);
+	\draw[color = orange, thick] (\UEPositionX, 3 * \UEPositionY) -- (\UEPositionX + 2, 5 * \UEPositionY);
+	\draw[hadronisation = {\UEPositionX + 2, 5 * \UEPositionY, 130}];
+
+	\draw[smallGluon, color = orange] (\UEPositionX, 3 * \UEPositionY) -- (\UEPositionX, 5 * \UEPositionY);
+	\draw[hadronisation = {\UEPositionX, 5 * \UEPositionY, 90}];
+
+	\draw[smallGluon, color = orange] (\UEPositionX, 3.5 * \UEPositionY) -- (\UEPositionX - 2, 5 * \UEPositionY);
+	\draw[hadronisation = {\UEPositionX - 2, 5 * \UEPositionY, 50}];
 
 
 	% UE ellipse
@@ -98,8 +112,8 @@
 	\draw[smallGluon, color = blue] (\gluonGluonVertexX, \gluonGluonVertexY) -- (\hardScatterX - \hardScatterRadius, \hardScatterY);
 
 	% hadronisation
-	\draw[hadronisation = {0.5, \quarkGluonVertexY, \verySmallEllipseRx, \verySmallEllipseRy, 0}];
-	\draw[hadronisation = {-0.5, \gluonGluonVertexY, \verySmallEllipseRx, \verySmallEllipseRy, 0}];
+	\draw[hadronisation = {0.5, \quarkGluonVertexY, 0}];
+	\draw[hadronisation = {-0.5, \gluonGluonVertexY, 0}];
 
 	% blue circle for hard scatter
 	\draw[color = black, thick, pattern = north west lines, pattern color = blue] (\hardScatterX, \hardScatterY) circle (\hardScatterRadius);
