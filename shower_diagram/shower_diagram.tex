@@ -1,58 +1,100 @@
 \begin{tikzpicture}
 
-	% coordinates
+	% diagrams
+	\tikzset{
+		smallGluon/.style={decorate, draw=black,
+		decoration={coil,aspect=0.3,segment length=3pt,amplitude=2pt}}
+	 }
 
+	% coordinates
 	\def\hardScatterRadius{0.3}
-	\def\protonPosition{2}
+	\def\protonPosition{4}
 	\def\UEPositionY{-1}
 	\def\UEPositionX{0}
 	\def\UEOffsetY{0.1}
 	\def\UEHadXBase{1}
 	\def\UEHadYBase{-2}
+	\def\hardScatterX{0}
+	\def\hardScatterY{1.5}
 
-	% small ellipse used for parton to hadron transistions
+	% small ellipse
 	\def\smallEllipseRx{0.1}
-	\def\smallEllipseRy{3 * \smallEllipseRx}
+	\def\smallEllipseRy{4 * \smallEllipseRx}
 
-	% blue circle for hard scatter
-	\draw[color = black, thick, pattern = north west lines, pattern color = blue] (0, 1) circle (\hardScatterRadius);
+	% very small ellipse used for parton to hadron transistions
+	\def\verySmallEllipseRx{0.5 * \smallEllipseRx}
+	\def\verySmallEllipseRy{0.5 * \smallEllipseRy}
 
 	%\draw[color = black, thick, fill = green] (0, 1) circle [x radius = \smallEllipseRx, y radius = \smallEllipseRy];
 
+	% arrows
+	\tikzset{->-/.style={decoration={
+		markings,
+		mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
 
 	% valence quarks
-	\draw[color = red, thick] (-3 * \protonPosition, -0.1) -- (-\protonPosition, -0.1);
-	\draw[color = red, thick] (-3 * \protonPosition, 0) -- (-\protonPosition, 0);
-	\draw[color = red, thick] (-3 * \protonPosition, 0.1) -- (-\protonPosition, 0.1);
+	\def\valenceY{0.2}
+	\draw[color = red, thick, ->-=0.5] (-2 * \protonPosition, -\valenceY) -- (-\protonPosition, -\valenceY);
+	\draw[color = red, thick, ->-=0.5] (-2 * \protonPosition, 0) -- (-\protonPosition, 0);
+	\draw[color = red, thick, ->-=0.5] (-2 * \protonPosition, \valenceY) -- (-\protonPosition, \valenceY);
 
-	\draw[color = red, thick] (3 * \protonPosition, -0.1) -- (\protonPosition, -0.1);
-	\draw[color = red, thick] (3 * \protonPosition, 0) -- (\protonPosition, 0);
-	\draw[color = red, thick] (3 * \protonPosition, 0.1) -- (\protonPosition, 0.1);
+	\draw[color = red, thick, ->-=0.5] (2 * \protonPosition, -\valenceY) -- (\protonPosition, -\valenceY);
+	\draw[color = red, thick, ->-=0.5] (2 * \protonPosition, 0) -- (\protonPosition, 0);
+	\draw[color = red, thick, ->-=0.5] (2 * \protonPosition, \valenceY) -- (\protonPosition, \valenceY);
 
 
 	% partons from proton
-	\draw[gluon, color = orange] (\protonPosition, -3 * \UEOffsetY) -- (\UEPositionX, \UEPositionY - 1 * \UEOffsetY);
-	\draw[gluon, color = orange] (-\protonPosition, -3 * \UEOffsetY) -- (\UEPositionX, \UEPositionY - 1 * \UEOffsetY);
-	\draw[gluon, color = orange] (\protonPosition, -1 * \UEOffsetY) -- (\UEPositionX, \UEPositionY + \UEOffsetY);
+	\draw[smallGluon, color = orange] (\protonPosition, -3 * \UEOffsetY) -- (\UEPositionX, \UEPositionY - 1 * \UEOffsetY);
+	\draw[smallGluon, color = orange] (-\protonPosition, -3 * \UEOffsetY) -- (\UEPositionX, \UEPositionY - 1 * \UEOffsetY);
+	\draw[smallGluon, color = orange] (\protonPosition, -1 * \UEOffsetY) -- (\UEPositionX, \UEPositionY + \UEOffsetY);
 	\draw[thick, color = orange] (-\protonPosition, -1 * \UEOffsetY) -- (\UEPositionX, \UEPositionY + \UEOffsetY);
 
-	% protons
-	\draw[color = black, thick, fill = red] (-\protonPosition, 0) circle [x radius = \smallEllipseRx, y radius = \smallEllipseRy];
-	\draw[color = black, thick, fill = red] (\protonPosition, 0) circle [x radius = \smallEllipseRx, y radius = \smallEllipseRy];
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Underlying event
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	% underlying event hadronisation
 	\draw[color = orange, thick] (\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (\UEHadXBase, \UEHadYBase);
-	\draw[color = orange, thick] (-\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (-\UEHadXBase, \UEHadYBase);
+	\draw[smallGluon, color = orange, thick] (-\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (-\UEHadXBase, \UEHadYBase);
 
-	\draw[color = orange, thick] (\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (0.8 * \UEHadXBase, 1.2 * \UEHadYBase);
+	\draw[smallGluon, color = orange, thick] (\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (0.8 * \UEHadXBase, 1.2 * \UEHadYBase);
 	\draw[color = orange, thick] (-\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (-0.8 * \UEHadXBase, 1.2 * \UEHadYBase);
 
 	% gluons in UE
-	\draw[gluon, color = orange] (\UEPositionX + 0.1, \UEPositionY - 0.1) -- (0.8 * \UEHadXBase + 0.1, 1.2 * \UEHadYBase + 0.1);
+	%\draw[smallGluon, color = orange] (\UEPositionX + 0.1, \UEPositionY - 0.1) -- (0.8 * \UEHadXBase + 0.1, 1.2 * \UEHadYBase + 0.1);
 
 
 	% UE ellipse
 	\draw[color = black, thick, fill = orange] (\UEPositionX, \UEPositionY) circle [x radius = \smallEllipseRx, y radius = \smallEllipseRy];
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% hard scatter
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	% partons for hard scatter
+	\def\quarkGluonVertexX{1.6}
+	\def\quarkGluonVertexY{0.5}
+	\def\gluonGluonVertexX{-1.6}
+	\def\gluonGluonVertexY{0.5}
+	\draw[color = blue, thick] (\protonPosition, 0.2) -- (\quarkGluonVertexX, \quarkGluonVertexY);
+	\draw[color = blue, thick] (\quarkGluonVertexX, \quarkGluonVertexY) -- (0.5, \quarkGluonVertexY);
+	\draw[smallGluon, color = blue] (\quarkGluonVertexX, \quarkGluonVertexY) -- (\hardScatterX + \hardScatterRadius, \hardScatterY);
+
+	\draw[smallGluon, color = blue] (-\protonPosition, 0.2) -- (\gluonGluonVertexX, \gluonGluonVertexY);
+	\draw[smallGluon, color = blue] (\gluonGluonVertexX, \gluonGluonVertexY) -- (-0.5, \gluonGluonVertexY);
+	\draw[smallGluon, color = blue] (\gluonGluonVertexX, \gluonGluonVertexY) -- (\hardScatterX - \hardScatterRadius, \hardScatterY);
+
+	\draw[color = blue, thick, fill = blue] (0.5, \quarkGluonVertexY) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy];
+	\draw[color = blue, thick, fill = blue] (-0.5, \gluonGluonVertexY) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy];
+
+	% blue circle for hard scatter
+	\draw[color = black, thick, pattern = north west lines, pattern color = blue] (\hardScatterX, \hardScatterY) circle (\hardScatterRadius);
+
+
+
+	% protons
+	\draw[color = black, thick, fill = red] (-\protonPosition, 0) circle [x radius = \smallEllipseRx, y radius = \smallEllipseRy];
+	\draw[color = black, thick, fill = red] (\protonPosition, 0) circle [x radius = \smallEllipseRx, y radius = \smallEllipseRy];
 
 
 \end{tikzpicture}
