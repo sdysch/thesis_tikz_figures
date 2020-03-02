@@ -21,6 +21,13 @@
 		}
 	}
 
+	% proton scatter diagram
+	\tikzset{
+		protonScatter/.code args = {#1, #2, #3}{%
+			\draw[color = cyan, thick, fill = cyan] (#1, #2) circle [x radius = 0.5 * \verySmallEllipseRx, y radius = #3];
+		}
+	}
+
 
 	% coordinates
 	\def\hardScatterRadius{0.3}
@@ -92,6 +99,18 @@
 
 	% UE ellipse
 	\draw[color = black, thick, fill = orange] (\UEPositionX, \UEPositionY) circle [x radius = \smallEllipseRx, y radius = \smallEllipseRy];
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Proton scatter 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\draw[color = blue, thick] (-\protonPosition, -0.075) -- (-\protonPosition + 1, -0.075);
+	\draw[smallGluon, color = blue] (-\protonPosition, 0.075) -- (-\protonPosition + 1, 0.075);
+	\draw[protonScatter = {-\protonPosition + 1, 0, 0.75 * \verySmallEllipseRy}];
+
+	\draw[color = blue, thick] (\protonPosition, 0.075) -- (\protonPosition - 1, 0.075);
+	\draw[protonScatter = {\protonPosition - 1, 0.075, 0.5 * \verySmallEllipseRy}];
+
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% hard scatter
