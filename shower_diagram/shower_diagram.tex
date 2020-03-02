@@ -149,13 +149,30 @@
 	\draw[hadronisationSmallDecay = {0.5, \quarkGluonVertexY, 0}];
 	\draw[hadronisationSmallDecay = {-0.5, \gluonGluonVertexY, 180}];
 
-	% blue circle for hard scatter
-	\draw[color = black, thick, pattern = north west lines, pattern color = blue] (\hardScatterX, \hardScatterY) circle (\hardScatterRadius);
-
-
 	% protons
 	\draw[color = black, thick, fill = red] (-\protonPosition, 0) circle [x radius = \smallEllipseRx, y radius = \smallEllipseRy];
 	\draw[color = black, thick, fill = red] (\protonPosition, 0) circle [x radius = \smallEllipseRx, y radius = \smallEllipseRy];
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% parton shower
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	% partons from hard scatter
+	% 0.70710678118 = sin 45 = cos 45
+	% 0.86602540378 = sqrt(3) / 2
+	% 0.5 = sin (30)
+	\draw[smallGluon, color = magenta, thick] (\hardScatterX - \hardScatterRadius * 0.70710678118, \hardScatterY + \hardScatterRadius * 0.70710678118) -- (\hardScatterX - 1.5, \hardScatterY + 1.5);
+	\draw[color = magenta, thick] (\hardScatterX + \hardScatterRadius * 0.70710678118, \hardScatterY + \hardScatterRadius * 0.70710678118) -- (\hardScatterX + 1.5, \hardScatterY + 1.5);
+	\draw[color = magenta, thick] (\hardScatterX, \hardScatterY + \hardScatterRadius) -- (\hardScatterX, \hardScatterY + 1.5);
+	\draw[color = magenta, thick] (\hardScatterX - \hardScatterRadius * 0.5, \hardScatterY + \hardScatterRadius * 0.86602540378) -- (\hardScatterX - 1, \hardScatterY + 1.5);
+	\draw[smallGluon, color = magenta, thick] (\hardScatterX + \hardScatterRadius * 0.5, \hardScatterY + \hardScatterRadius * 0.86602540378) -- (\hardScatterX + 1, \hardScatterY + 1.5);
+
+	\draw[color = black, fill = magenta, thick] (\hardScatterX + 1.5, \hardScatterY + 1.5) circle (0.5 * \hardScatterRadius);
+	\draw[color = black, fill = magenta, thick] (\hardScatterX, \hardScatterY + 1.5) circle (0.5 * \hardScatterRadius);
+	\draw[color = black, fill = magenta, thick] (\hardScatterX - 1, \hardScatterY + 1.5) circle (0.5 * \hardScatterRadius);
+
+	% blue circle for hard scatter position
+	\draw[color = black, thick, pattern = north west lines, pattern color = magenta] (\hardScatterX, \hardScatterY) circle (\hardScatterRadius);
 
 
 \end{tikzpicture}
