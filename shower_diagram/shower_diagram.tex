@@ -1,4 +1,4 @@
-\begin{tikzpicture}[scale=0.8]
+\begin{tikzpicture}[scale=0.9]
 
 	% TODO, tidy up code with foreach loops?
 
@@ -76,7 +76,8 @@
 
 	% coordinates
 	\def\hardScatterRadius{0.3}
-	\def\protonPosition{4}
+	%\def\protonPosition{4}
+	\def\protonPosition{2.5}
 	\def\UEPositionY{-1}
 	\def\UEPositionX{0}
 	\def\UEOffsetY{0.1}
@@ -234,11 +235,11 @@
 
 	\def\legXmin{-9}
 	\def\legXmax{-7}
-	\def\legYmin{2}
+	\def\legYmin{-1.5}
 	\def\legYmax{6}
 	\def\keyY{\legYmax - 0.2}
 	\def\keyX{\legXmax - 0.2}
-	\draw[thick, color = black] (\legXmin - 1, \legYmin) -- (\legXmax + 1.5, \legYmin) -- (\legXmax + 1.5, \legYmax);
+	\draw[thick, color = black] (\legXmin - 2, \legYmin) -- (\legXmax + 1.5, \legYmin) -- (\legXmax + 1.5, \legYmax);
 	%\node at (\legXmin, \legYmax) {Key};
 
 	\node at (\legXmin, \keyY) {Hard scatter};
@@ -250,9 +251,29 @@
 	\draw[color = red, thick, ->-=0.5] (\keyX - 0.3, \keyY - 0.75 + 0.1) -- (\keyX, \keyY - 0.75 + 0.1);
 	\draw[color = black, thick, fill = red] (\keyX, \keyY - 0.75) circle [x radius = 0.5 * \smallEllipseRx, y radius = 0.5 * \smallEllipseRy];
 
-	\node at (\legXmin, \keyY - 1.75) {Hadronisation};
+	\node at (\legXmin, \keyY - 2.5) {Hadronisation};
+	\node at (\legXmin, \keyY - 3.0) {and particle decay};
 	\draw[hadronisation = {\keyX, \keyY - 1.5, 180}];
 	\draw[hadronisation2 = {\keyX, \keyY - 2.5, 180}];
+	\draw[hadronisationSmallDecay = {\keyX, \keyY - 3.5, 180}];
+
+	%\draw [decorate, decoration = {brace, mirror, amplitude = 10pt}, xshift = 0, yshift = 0] (\keyX - 0.5, \keyY - 2.5) -- (\keyX - 0.5, \keyY - 3.5) node [black, midway, xshift = 0] {};
+
+
+	\node at (\legXmin, \keyY - 4.5) {Underlying event};
+	\draw[smallGluon, color = orange] (\keyX, \keyY - 4.4) -- (\keyX + 1, \keyY - 4.4);
+	\draw[thick, color = orange] (\keyX, \keyY - 4.6) -- (\keyX + 1, \keyY - 4.6);
+	\draw[color = black, thick, fill = orange] (\keyX, \keyY - 4.5) circle [x radius = 0.5 * \smallEllipseRx, y radius = 0.5 * \smallEllipseRy];
+
+	\node at (\legXmin, \keyY - 5.5) {Proton scattering};
+	\draw[color = blue, thick] (\keyX + 0.2, \keyY - 5.4) -- (\keyX + 1, \keyY - 5.4);
+	\draw[smallGluon, color = blue] (\keyX + 0.2, \keyY - 5.6) -- (\keyX + 1, \keyY - 5.6);
+	\draw[protonScatter = {\keyX + 1, \keyY - 5.5, \verySmallEllipseRy}];
+
+	\node at (\legXmin, \keyY - 0.5 - 6.3) {Parton shower};
+	\draw[smallGluon, color = magenta] (\keyX, \keyY - 0.5 - 6.4) -- (\keyX + 1, \keyY - 0.5 - 6.4);
+	\draw[thick, color = magenta] (\keyX, \keyY - 0.5 - 6.6) -- (\keyX + 1, \keyY - 0.5 - 6.6);
+	\draw[color = black, fill = magenta, thick] (\keyX, \keyY - 0.5 - 6.0) circle (0.5 * \hardScatterRadius);
 
 
 \end{tikzpicture}
