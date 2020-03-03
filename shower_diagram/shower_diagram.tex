@@ -1,4 +1,4 @@
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.8]
 
 	% TODO, tidy up code with foreach loops?
 
@@ -236,9 +236,9 @@
 	\def\legXmax{-7}
 	\def\legYmin{2}
 	\def\legYmax{6}
-	\def\keyY{\legYmax - 0.5}
-	\def\keyX{\legXmax - 0.5}
-	\draw[thick, color = black] (\legXmin - 1, \legYmin) -- (\legXmax + 1, \legYmin) -- (\legXmax + 1, \legYmax);
+	\def\keyY{\legYmax - 0.2}
+	\def\keyX{\legXmax - 0.2}
+	\draw[thick, color = black] (\legXmin - 1, \legYmin) -- (\legXmax + 1.5, \legYmin) -- (\legXmax + 1.5, \legYmax);
 	%\node at (\legXmin, \legYmax) {Key};
 
 	\node at (\legXmin, \keyY) {Hard scatter};
