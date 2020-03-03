@@ -19,19 +19,19 @@
 	\tikzset{
 		hadronisation/.code args = {#1, #2, #3}{%
 			% thick lines
-			%\foreach \i in {-0.1, 0.1} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.5 + \i , #2 - 0.5 + \i);
+			%\foreach \i in {-0.1, 0.1} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green!110] (#1, #2) -- (#1 + 0.5 + \i , #2 - 0.5 + \i);
 			% big particle decay
-			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.5 , #2 - 0.5);
-			\draw[dashed, color = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.5 , #2 - 0.5) -- (#1 + 0.95, #2 - 0.75);
-			\draw[dashed, color = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.5 , #2 - 0.5) -- (#1 + 0.75, #2 - 0.95);
-			\draw[color = black, fill = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.95, #2 - 0.75) circle (0.05);
-			\draw[color = black, fill = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.75, #2 - 0.95) circle (0.05);
-			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green] (#1 + 0.5 , #2 - 0.5) circle (0.075);
+			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green!110] (#1, #2) -- (#1 + 0.5 , #2 - 0.5);
+			\draw[dashed, color = green!110, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.5 , #2 - 0.5) -- (#1 + 0.95, #2 - 0.75);
+			\draw[dashed, color = green!110, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.5 , #2 - 0.5) -- (#1 + 0.75, #2 - 0.95);
+			\draw[color = black, fill = green!110, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.95, #2 - 0.75) circle (0.05);
+			\draw[color = black, fill = green!110, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.75, #2 - 0.95) circle (0.05);
+			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green!110] (#1 + 0.5 , #2 - 0.5) circle (0.075);
 			% little particle
-			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.3, #2 - 0.7);
-			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green] (#1 + 0.3 , #2 - 0.7) circle (0.05);
-			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.7 , #2 - 0.3);
-			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green] (#1 + 0.7 , #2 - 0.3) circle (0.05);
+			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green!110] (#1, #2) -- (#1 + 0.3, #2 - 0.7);
+			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green!110] (#1 + 0.3 , #2 - 0.7) circle (0.05);
+			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green!110] (#1, #2) -- (#1 + 0.7 , #2 - 0.3);
+			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green!110] (#1 + 0.7 , #2 - 0.3) circle (0.05);
 			% ellipse for hadronization vertex
 			\draw[color = black, fill = blue] (#1, #2) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy, rotate = #3];
 		}
@@ -41,17 +41,17 @@
 	\tikzset{
 		hadronisation2/.code args = {#1, #2, #3}{%
 			% thick lines
-			%\foreach \i in {-0.1, 0.1} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.5 + \i , #2 - 0.5 + \i);
+			%\foreach \i in {-0.1, 0.1} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green!110] (#1, #2) -- (#1 + 0.5 + \i , #2 - 0.5 + \i);
 			% big particle decay
-			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.3 , #2 - 0.7);
-			\draw[dashed, color = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.3 , #2 - 0.7) -- (#1 + 0.75, #2 - 0.95);
-			\draw[dashed, color = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.3 , #2 - 0.7) -- (#1 + 0.55, #2 - 1.15);
-			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green] (#1 + 0.3 , #2 - 0.7) circle (0.075);
-			\draw[color = black, fill = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.75, #2 - 0.95) circle (0.05);
-			\draw[color = black, fill = green, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.55, #2 - 1.15) circle (0.05);
+			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green!110] (#1, #2) -- (#1 + 0.3 , #2 - 0.7);
+			\draw[dashed, color = green!110, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.3 , #2 - 0.7) -- (#1 + 0.75, #2 - 0.95);
+			\draw[dashed, color = green!110, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.3 , #2 - 0.7) -- (#1 + 0.55, #2 - 1.15);
+			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green!110] (#1 + 0.3 , #2 - 0.7) circle (0.075);
+			\draw[color = black, fill = green!110, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.75, #2 - 0.95) circle (0.05);
+			\draw[color = black, fill = green!110, rotate around = {#3 + \manualRotationOffset:(#1, #2)}] (#1 + 0.55, #2 - 1.15) circle (0.05);
 			% little particle
-			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.7 , #2 - 0.3);
-			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green] (#1 + 0.7 , #2 - 0.3) circle (0.05);
+			\draw[dashed, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green!110] (#1, #2) -- (#1 + 0.7 , #2 - 0.3);
+			\draw[color = black, rotate around = {#3 + \manualRotationOffset:(#1, #2)}, fill = green!110] (#1 + 0.7 , #2 - 0.3) circle (0.05);
 			% ellipse for hadronization vertex
 			\draw[color = black, fill = blue] (#1, #2) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy, rotate = #3];
 		}
@@ -60,8 +60,8 @@
 	% hadronisation diagram with smaller decay
 	\tikzset{
 		hadronisationSmallDecay/.code args = {#1, #2, #3}{%
-			\foreach \i in {-0.3, -0.1, 0.1, 0.3} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green] (#1, #2) -- (#1 + 0.25 + \i , #2 - 0.25 + \i);
-			\foreach \i in {-0.2, 0, 0.2} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green, dashed] (#1, #2) -- (#1 + 0.25 + \i , #2 - 0.25 + \i);
+			\foreach \i in {-0.3, -0.1, 0.1, 0.3} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green!110] (#1, #2) -- (#1 + 0.25 + \i , #2 - 0.25 + \i);
+			\foreach \i in {-0.2, 0, 0.2} \draw[rotate around = {#3 + \manualRotationOffset:(#1, #2)}, color = green!110, dashed] (#1, #2) -- (#1 + 0.25 + \i , #2 - 0.25 + \i);
 			\draw[color = black, fill = blue] (#1, #2) circle [x radius = \verySmallEllipseRx, y radius = \verySmallEllipseRy, rotate = #3];
 		}
 	}
@@ -69,7 +69,7 @@
 	% proton scatter diagram
 	\tikzset{
 		protonScatter/.code args = {#1, #2, #3}{%
-			\draw[color = black, fill = cyan] (#1, #2) circle [x radius = 0.5 * \verySmallEllipseRx, y radius = #3];
+			\draw[color = black, fill = cyan] (#1, #2) circle [x radius = 0.75 * \verySmallEllipseRx, y radius = #3];
 		}
 	}
 
@@ -149,10 +149,10 @@
 
 	\draw[color = blue, thick] (-\protonPosition, -0.075) -- (-\protonPosition + 1, -0.075);
 	\draw[smallGluon, color = blue] (-\protonPosition, 0.075) -- (-\protonPosition + 1, 0.075);
-	\draw[protonScatter = {-\protonPosition + 1, 0, 0.75 * \verySmallEllipseRy}];
+	\draw[protonScatter = {-\protonPosition + 1, 0, \verySmallEllipseRy}];
 
 	\draw[color = blue, thick] (\protonPosition, 0.075) -- (\protonPosition - 1, 0.075);
-	\draw[protonScatter = {\protonPosition - 1, 0.075, 0.5 * \verySmallEllipseRy}];
+	\draw[protonScatter = {\protonPosition - 1, 0.075, \verySmallEllipseRy}];
 
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -190,19 +190,32 @@
 	% 0.86602540378 = sqrt(3) / 2
 	% 0.5 = sin (30)
 	\draw[smallGluon, color = magenta] (\hardScatterX - \hardScatterRadius * 0.70710678118, \hardScatterY + \hardScatterRadius * 0.70710678118) -- (\hardScatterX - 3, \hardScatterY + 1.5);
+	\draw[hadronisation = {\hardScatterX - 3, \hardScatterY + 1.5, -30}];
+
 	\draw[smallGluon, color = magenta] (\hardScatterX - 1.5, \hardScatterY + 0.75) -- (\hardScatterX - 3.5, \hardScatterY + 0.5);
+	\draw[hadronisation2 = {\hardScatterX - 3.5, \hardScatterY + 0.5, 5}];
 
 	\draw[color = magenta, thick] (\hardScatterX + \hardScatterRadius * 0.70710678118, \hardScatterY + \hardScatterRadius * 0.70710678118) -- (\hardScatterX + 2, \hardScatterY + 2);
 	\draw[color = magenta, thick] (\hardScatterX, \hardScatterY + \hardScatterRadius) -- (\hardScatterX, \hardScatterY + 2);
 	\draw[color = magenta, thick] (\hardScatterX - \hardScatterRadius * 0.5, \hardScatterY + \hardScatterRadius * 0.86602540378) -- (\hardScatterX - 1, \hardScatterY + 2);
+
 	\draw[smallGluon, color = magenta] (\hardScatterX + \hardScatterRadius * 0.5, \hardScatterY + \hardScatterRadius * 0.86602540378) -- (\hardScatterX + 1, \hardScatterY + 2);
+	\draw[hadronisation = {\hardScatterX + 1, \hardScatterY + 2, -120}];
+
+	\draw[smallGluon, color = magenta] (\hardScatterX - 1, \hardScatterY + 2) -- (\hardScatterX - 1.2, \hardScatterY + 3);
+	\draw[hadronisation = {\hardScatterX - 1.2, \hardScatterY + 3, -70}];
 
 	% decays from magenta blobs
-	\foreach \i in {-0.25, 0.25} {
+	\foreach \i in {-0.1, 0.1} {
 		\draw[color = magenta, thick] (\hardScatterX + 2, \hardScatterY + 2) -- (\hardScatterX + 3 + \i, \hardScatterY + 3 - \i);
 		\draw[color = magenta, thick] (\hardScatterX, \hardScatterY + 2) -- (\hardScatterX + \i, \hardScatterY + 3.5);
 		\draw[color = magenta, thick] (\hardScatterX - 1, \hardScatterY + 2) -- (\hardScatterX - 2 - \i, \hardScatterY + 3 - \i);
 	}
+
+	% hadronisation from magenta blobs
+	\draw[hadronisation2 = {\hardScatterX + 3, \hardScatterY + 3, 220}];
+	\draw[hadronisation = {\hardScatterX, \hardScatterY + 3.5, -90}];
+	\draw[hadronisation2 = {\hardScatterX - 2, \hardScatterY + 3, 220 + 90}];
 
 	% magenta blobs
 	\draw[color = black, fill = magenta, thick] (\hardScatterX + 2, \hardScatterY + 2) circle (0.5 * \hardScatterRadius);
