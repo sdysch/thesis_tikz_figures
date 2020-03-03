@@ -1,5 +1,7 @@
 \begin{tikzpicture}
 
+	% TODO, tidy up code with foreach loops?
+
 	% diagrams
 
 	% small gluons
@@ -96,13 +98,11 @@
 
 	% valence quarks
 	\def\valenceY{0.2}
-	\draw[color = red, thick, ->-=0.5] (-2 * \protonPosition, -\valenceY) -- (-\protonPosition, -\valenceY);
-	\draw[color = red, thick, ->-=0.5] (-2 * \protonPosition, 0) -- (-\protonPosition, 0);
-	\draw[color = red, thick, ->-=0.5] (-2 * \protonPosition, \valenceY) -- (-\protonPosition, \valenceY);
-
-	\draw[color = red, thick, ->-=0.5] (2 * \protonPosition, -\valenceY) -- (\protonPosition, -\valenceY);
-	\draw[color = red, thick, ->-=0.5] (2 * \protonPosition, 0) -- (\protonPosition, 0);
-	\draw[color = red, thick, ->-=0.5] (2 * \protonPosition, \valenceY) -- (\protonPosition, \valenceY);
+	\foreach \i in {-1, 1} {
+		\draw[color = red, thick, ->-=0.5] (\i * 2 * \protonPosition, -\valenceY) -- (\i * \protonPosition, -\valenceY);
+		\draw[color = red, thick, ->-=0.5] (\i * 2 * \protonPosition, 0) -- (\i * \protonPosition, 0);
+		\draw[color = red, thick, ->-=0.5] (\i * 2 * \protonPosition, \valenceY) -- (\i * \protonPosition, \valenceY);
+	}
 
 
 	% partons from proton
@@ -120,10 +120,10 @@
 	\draw[color = orange, thick] (\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (\UEHadXBase, \UEHadYBase);
 	\draw[hadronisation2 = {\UEHadXBase, \UEHadYBase, 150}];
 
-	\draw[smallGluon, color = orange, thick] (-\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (-\UEHadXBase, \UEHadYBase);
+	\draw[smallGluon, color = orange] (-\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (-\UEHadXBase, \UEHadYBase);
 	\draw[hadronisation2 = {-\UEHadXBase, \UEHadYBase, 30}];
 
-	\draw[smallGluon, color = orange, thick] (\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (0.8 * \UEHadXBase, 1.2 * \UEHadYBase);
+	\draw[smallGluon, color = orange] (\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (0.8 * \UEHadXBase, 1.2 * \UEHadYBase);
 	\draw[hadronisation = {0.8 * \UEHadXBase, 1.2 * \UEHadYBase, 140}];
 
 	\draw[color = orange, thick] (-\UEPositionX, \UEPositionY -2 * \UEOffsetY) -- (-0.8 * \UEHadXBase, 1.2 * \UEHadYBase);
@@ -189,15 +189,25 @@
 	% 0.70710678118 = sin 45 = cos 45
 	% 0.86602540378 = sqrt(3) / 2
 	% 0.5 = sin (30)
-	\draw[smallGluon, color = magenta, thick] (\hardScatterX - \hardScatterRadius * 0.70710678118, \hardScatterY + \hardScatterRadius * 0.70710678118) -- (\hardScatterX - 1.5, \hardScatterY + 1.5);
-	\draw[color = magenta, thick] (\hardScatterX + \hardScatterRadius * 0.70710678118, \hardScatterY + \hardScatterRadius * 0.70710678118) -- (\hardScatterX + 1.5, \hardScatterY + 1.5);
-	\draw[color = magenta, thick] (\hardScatterX, \hardScatterY + \hardScatterRadius) -- (\hardScatterX, \hardScatterY + 1.5);
-	\draw[color = magenta, thick] (\hardScatterX - \hardScatterRadius * 0.5, \hardScatterY + \hardScatterRadius * 0.86602540378) -- (\hardScatterX - 1, \hardScatterY + 1.5);
-	\draw[smallGluon, color = magenta, thick] (\hardScatterX + \hardScatterRadius * 0.5, \hardScatterY + \hardScatterRadius * 0.86602540378) -- (\hardScatterX + 1, \hardScatterY + 1.5);
+	\draw[smallGluon, color = magenta] (\hardScatterX - \hardScatterRadius * 0.70710678118, \hardScatterY + \hardScatterRadius * 0.70710678118) -- (\hardScatterX - 3, \hardScatterY + 1.5);
+	\draw[smallGluon, color = magenta] (\hardScatterX - 1.5, \hardScatterY + 0.75) -- (\hardScatterX - 3.5, \hardScatterY + 0.5);
 
-	\draw[color = black, fill = magenta, thick] (\hardScatterX + 1.5, \hardScatterY + 1.5) circle (0.5 * \hardScatterRadius);
-	\draw[color = black, fill = magenta, thick] (\hardScatterX, \hardScatterY + 1.5) circle (0.5 * \hardScatterRadius);
-	\draw[color = black, fill = magenta, thick] (\hardScatterX - 1, \hardScatterY + 1.5) circle (0.5 * \hardScatterRadius);
+	\draw[color = magenta, thick] (\hardScatterX + \hardScatterRadius * 0.70710678118, \hardScatterY + \hardScatterRadius * 0.70710678118) -- (\hardScatterX + 2, \hardScatterY + 2);
+	\draw[color = magenta, thick] (\hardScatterX, \hardScatterY + \hardScatterRadius) -- (\hardScatterX, \hardScatterY + 2);
+	\draw[color = magenta, thick] (\hardScatterX - \hardScatterRadius * 0.5, \hardScatterY + \hardScatterRadius * 0.86602540378) -- (\hardScatterX - 1, \hardScatterY + 2);
+	\draw[smallGluon, color = magenta] (\hardScatterX + \hardScatterRadius * 0.5, \hardScatterY + \hardScatterRadius * 0.86602540378) -- (\hardScatterX + 1, \hardScatterY + 2);
+
+	% decays from magenta blobs
+	\foreach \i in {-0.25, 0.25} {
+		\draw[color = magenta, thick] (\hardScatterX + 2, \hardScatterY + 2) -- (\hardScatterX + 3 + \i, \hardScatterY + 3 - \i);
+		\draw[color = magenta, thick] (\hardScatterX, \hardScatterY + 2) -- (\hardScatterX + \i, \hardScatterY + 3.5);
+		\draw[color = magenta, thick] (\hardScatterX - 1, \hardScatterY + 2) -- (\hardScatterX - 2 - \i, \hardScatterY + 3 - \i);
+	}
+
+	% magenta blobs
+	\draw[color = black, fill = magenta, thick] (\hardScatterX + 2, \hardScatterY + 2) circle (0.5 * \hardScatterRadius);
+	\draw[color = black, fill = magenta, thick] (\hardScatterX, \hardScatterY + 2) circle (0.5 * \hardScatterRadius);
+	\draw[color = black, fill = magenta, thick] (\hardScatterX - 1, \hardScatterY + 2) circle (0.5 * \hardScatterRadius);
 
 	% blue circle for hard scatter position
 	\draw[color = black, thick, pattern = north west lines, pattern color = magenta] (\hardScatterX, \hardScatterY) circle (\hardScatterRadius);
