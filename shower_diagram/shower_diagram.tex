@@ -205,6 +205,9 @@
 	\draw[smallGluon, color = magenta] (\hardScatterX - 1, \hardScatterY + 2) -- (\hardScatterX - 1.2, \hardScatterY + 3);
 	\draw[hadronisation = {\hardScatterX - 1.2, \hardScatterY + 3, -70}];
 
+	\draw[smallGluon, color = magenta] (\hardScatterX + \hardScatterRadius, \hardScatterY) -- (\hardScatterX + 2, \hardScatterY + 0.5);
+	\draw[hadronisation = {\hardScatterX + 2, \hardScatterY + 0.5, 190}];
+
 	% decays from magenta blobs
 	\foreach \i in {-0.1, 0.1} {
 		\draw[color = magenta, thick] (\hardScatterX + 2, \hardScatterY + 2) -- (\hardScatterX + 3 + \i, \hardScatterY + 3 - \i);
@@ -224,6 +227,32 @@
 
 	% blue circle for hard scatter position
 	\draw[color = black, thick, pattern = north west lines, pattern color = magenta] (\hardScatterX, \hardScatterY) circle (\hardScatterRadius);
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Key
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\def\legXmin{-9}
+	\def\legXmax{-7}
+	\def\legYmin{2}
+	\def\legYmax{6}
+	\def\keyY{\legYmax - 0.5}
+	\def\keyX{\legXmax - 0.5}
+	\draw[thick, color = black] (\legXmin - 1, \legYmin) -- (\legXmax + 1, \legYmin) -- (\legXmax + 1, \legYmax);
+	%\node at (\legXmin, \legYmax) {Key};
+
+	\node at (\legXmin, \keyY) {Hard scatter};
+	\draw[color = black, thick, pattern = north west lines, pattern color = magenta] (\keyX, \keyY) circle (0.5 * \hardScatterRadius);
+
+	\node at (\legXmin, \keyY - 0.75) {Proton beam};
+	\draw[color = red, thick, ->-=0.5] (\keyX - 0.3, \keyY - 0.75 - 0.1) -- (\keyX, \keyY - 0.75 - 0.1);
+	\draw[color = red, thick, ->-=0.5] (\keyX - 0.3, \keyY - 0.75) -- (\keyX, \keyY - 0.75);
+	\draw[color = red, thick, ->-=0.5] (\keyX - 0.3, \keyY - 0.75 + 0.1) -- (\keyX, \keyY - 0.75 + 0.1);
+	\draw[color = black, thick, fill = red] (\keyX, \keyY - 0.75) circle [x radius = 0.5 * \smallEllipseRx, y radius = 0.5 * \smallEllipseRy];
+
+	\node at (\legXmin, \keyY - 1.75) {Hadronisation};
+	\draw[hadronisation = {\keyX, \keyY - 1.5, 180}];
+	\draw[hadronisation2 = {\keyX, \keyY - 2.5, 180}];
 
 
 \end{tikzpicture}
