@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+	\foreach \i in {-1, 1} {
+		\draw[gluon, color = black] (-1, \i) -- (0, 0);
+	}
+
+	\draw[gluon, color = black] (0, 0) -- (1, 0);
+
+	\foreach \i in {-1, 1} {
+		\draw[particleNoArrow, color = black] (1, 0) -- (2, \i);
+	}
+
+	\foreach \i in {-1, 1} {
+		\draw[Wboson, color = black] (2, \i) -- (3, 1.25 * \i);
+		\draw[particleNoArrow, color = black] (2, \i) -- (4, 0.5 * \i);
+	}
+
+	\foreach \i in {-1, 1} {
+		\draw[particleNoArrow, color = black] (3, 1.25 * \i) -- (4, 1.5 * \i);
+		\draw[particleNoArrow, color = black] (3, 1.25 * \i) -- (4, \i);
+	}
+
+\end{tikzpicture}
