@@ -7,6 +7,7 @@ all:
 	pdflatex ${ARGS} make_ttbar_tauJetFakes.tex
 	pdflatex ${ARGS} make_shower_diagram.tex
 	pdflatex ${ARGS} make_ttbar_feynman_diagram.tex
+	pdflatex ${ARGS} make_Wt_feynman_diagram.tex
 
 particles:
 	pdflatex ${ARGS} make_particles.tex
@@ -22,6 +23,9 @@ shower_diagram:
 
 ttbar_feynman_diagram:
 	pdflatex ${ARGS} make_ttbar_feynman_diagram.tex
+
+Wt_feynman_diagram:
+	pdflatex ${ARGS} make_Wt_feynman_diagram.tex
 
 clean:
 	rm *.pdf *.out *.log *.aux *.bbl *.blg *.toc *.mtc* *.maf *.dpth *.md5
