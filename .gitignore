@@ -27,3 +27,5 @@
 *.auxlock
 
 *.pdf
+
+!figures/*.png

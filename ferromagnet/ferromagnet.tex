@@ -1,0 +1,26 @@
+\def\magnetsizeX{5}
+\def\magnetsizeY{5}
+\begin{tikzpicture}
+	% magnet
+	\draw (0, 0) rectangle (\magnetsizeX, \magnetsizeY);
+
+	% spins
+	\foreach \i in {0.5, 1.5, 2.5, 3.5, 4.5} {
+		% `randomly' rotate spins according to fraction of total coordinate, converted to angle
+		\foreach \j in {0.5, 1.5, 2.5, 3.5, 4.5} \node[rotate=360 * (\i + \j) / 10] at (\i, \j) {$\rightarrow$};
+	}
+
+	\node at (\magnetsizeX / 2, \magnetsizeY + 0.5) {$T>T_c$};
+\end{tikzpicture}
+ \qquad
+\begin{tikzpicture}
+	% magnet
+	\draw (0, 0) rectangle (\magnetsizeX, \magnetsizeY);
+
+	% spins
+	\foreach \i in {0.5, 1.5, 2.5, 3.5, 4.5} {
+		\foreach \j in {0.5, 1.5, 2.5, 3.5, 4.5} \node[rotate=45] at (\i, \j) {$\rightarrow$};
+	}
+
+	\node at (\magnetsizeX / 2, \magnetsizeY + 0.5) {$T<T_c$};
+\end{tikzpicture}
