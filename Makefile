@@ -9,6 +9,7 @@ all:
 	pdflatex ${ARGS} make_ttbar_feynman_diagram.tex
 	pdflatex ${ARGS} make_Wt_feynman_diagram.tex
 	pdflatex ${ARGS} make_ferromagnet.tex
+	pdflatex ${ARGS} make_higgs_potential.tex
 
 particles:
 	pdflatex ${ARGS} make_particles.tex
@@ -30,6 +31,9 @@ Wt_feynman_diagram:
 
 ferromagnet:
 	pdflatex ${ARGS} make_ferromagnet.tex
+
+higgs_potential:
+	pdflatex ${ARGS} make_higgs_potential.tex
 
 clean:
 	rm *.pdf *.out *.log *.aux *.bbl *.blg *.toc *.mtc* *.maf *.dpth *.md5
