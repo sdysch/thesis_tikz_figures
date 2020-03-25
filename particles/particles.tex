@@ -58,16 +58,16 @@
 	\node at (4 * \gridstep + \gridstep / 2, 3 * \gridstep + \gridstep / 3) {\color{orange}\small Higgs boson};
 
 	% fermion generations
-	\filldraw[blur shadow={shadow blur steps=5}, rounded corners, color=gray!10] (0 * \gridstep, 4 * \gridstep + \gridstep / 2) rectangle (3 * \gridstep, 5 * \gridstep + \gridstep / 2);
-	\node at (1 * \gridstep + \gridstep / 2, 5 * \gridstep) {\Large\textbf{Fermions}};
+	\filldraw[blur shadow={shadow blur steps=5}, rounded corners, color=gray!10] (0 * \gridstep, 4 * \gridstep + \gridstep / 4) rectangle (3 * \gridstep, 5 * \gridstep + \gridstep / 4);
+	\node at (1 * \gridstep + \gridstep / 2, 5 * \gridstep - 0.5) {\Large\textbf{Fermions}};
 
 	%\node at (0 * \gridstep + \gridstep / 2, 4 * \gridstep + \gridstep / 2) {1};
 	%\node at (1 * \gridstep + \gridstep / 2, 4 * \gridstep + \gridstep / 2) {2};
 	%\node at (2 * \gridstep + \gridstep / 2, 4 * \gridstep + \gridstep / 2) {3};
 
 	% bosons
-	\filldraw[blur shadow={shadow blur steps=5}, rounded corners, color=gray!10] (3 * \gridstep + \offset, 4 * \gridstep + \gridstep / 2) rectangle (5 * \gridstep, 5 * \gridstep + \gridstep / 2);
-	\node at (3 * \gridstep + \gridstep, 5 * \gridstep) {{\Large\textbf{Bosons}}};
+	\filldraw[blur shadow={shadow blur steps=5}, rounded corners, color=gray!10] (3 * \gridstep + \offset, 4 * \gridstep + \gridstep / 4) rectangle (5 * \gridstep, 5 * \gridstep + \gridstep / 4);
+	\node at (3 * \gridstep + \gridstep, 5 * \gridstep - 0.5) {{\Large\textbf{Bosons}}};
 
 	% leptons
 	\node[rotate=90] at (-1 * \gridstep / 2, 1 * \gridstep) {\color{red}\Large{Leptons}};
