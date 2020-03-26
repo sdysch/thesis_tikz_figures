@@ -1,22 +1,15 @@
 \begin{tikzpicture}[scale=2]
-	%\begin{axis}[
-		%hide axis,
-		%samples=50,
-		%%samples=30,
-		%domain=0:360,
-		%y domain=0:1.25,clip=false,
-		%zmin=0,
-		%view={140}{25}
-	%]
 	\begin{axis}[
-	axis lines=center,
+	axis lines = center,
+	%axis on top = true,
 	axis on top = false,
-	view={140}{25},
+	axis line style = {black, thin, dashed},
+	view = {140}{25},
 	axis equal,
-	colormap={blackwhite}{gray(0cm)=(1); gray(1cm)=(0)},
-	samples=50,
-	domain=0:360,
-	y domain=0:1.25,
+	colormap = {blackwhite}{gray(0cm)=(1); gray(1cm)=(0)},
+	samples = 50,
+	domain = 0:360,
+	y domain = 0:1.25,
 	zmin=0,
 	xmax=1.5,
 	ymax=1.5,
@@ -31,7 +24,7 @@
 	ylabel=$\phi_2$,
 	zlabel=$V(|\phi|)$
 	]
-	\addplot3 [surf, shader=flat, draw=black, fill=white, z buffer=sort]
+	\addplot3 [surf, shader=flat, draw=blue, fill=white, z buffer=sort]
 	   ({sin(x)*y}, {cos(x)*y}, {(y^2-1)^2});
 	\end{axis}
 \end{tikzpicture}
