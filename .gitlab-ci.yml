@@ -16,4 +16,10 @@ compile_pdf:
             - make_proton.pdf
             - make_particles.pdf
             - make_tauJetCartoon.pdf
+            - make_ttbar_tauJetFakes.pdf
+            - make_shower_diagram.pdf
+            - make_ttbar_feynman_diagram.pdf
+            - make_Wt_feynman_diagram.pdf
+            - make_ferromagnet.pdf
+            - make_higgs_potential.pdf
         expire_in: 1 week
