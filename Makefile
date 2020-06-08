@@ -8,6 +8,8 @@ all:
 	pdflatex ${ARGS} make_shower_diagram.tex
 	pdflatex ${ARGS} make_ttbar_feynman_diagram.tex
 	pdflatex ${ARGS} make_Wt_feynman_diagram.tex
+	pdflatex ${ARGS} make_schan_feynman_diagram.tex
+	pdflatex ${ARGS} make_tchan_feynman_diagram.tex
 	pdflatex ${ARGS} make_ferromagnet.tex
 	pdflatex ${ARGS} make_higgs_potential.tex
 
@@ -28,6 +30,12 @@ ttbar_feynman_diagram:
 
 Wt_feynman_diagram:
 	pdflatex ${ARGS} make_Wt_feynman_diagram.tex
+
+schan_feynman_diagram:
+	pdflatex ${ARGS} make_schan_feynman_diagram.tex
+
+tchan_feynman_diagram:
+	pdflatex ${ARGS} make_tchan_feynman_diagram.tex
 
 ferromagnet:
 	pdflatex ${ARGS} make_ferromagnet.tex
